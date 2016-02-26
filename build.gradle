@@ -29,11 +29,11 @@ repositories {
 dependencies {
 	compile ('de.nikem.nest:nest:1.0-SNAPSHOT') {
 		exclude group: 'javax.servlet', module: 'servlet-api'
-		exclude group: 'javax.servlet', module: 'javax.servlet-api'
-		exclude group: 'javax.servlet.jsp', module: 'javax.servlet.jsp-api'
-		exclude group: 'javax.websocket', module: 'javax.websocket-api'
 	}
 	//These dependencies must be omitted for deployment in servlet container
+	providedRuntime 'javax.servlet:javax.servlet-api:+'
+	providedRuntime 'javax.servlet.jsp:javax.servlet.jsp-api:+'
+	providedRuntime 'javax.websocket:javax.websocket-api:+'
 	testCompile 'junit:junit:4.+'
 }
 
