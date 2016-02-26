@@ -1,0 +1,50 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+			
+group = theGroup
+version = theVersion
+sourceCompatibility = theSourceCompatibility
+
+eclipse {
+	classpath {
+		containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+		containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	}
+}
+
+jar {
+	manifest {
+		attributes 'Implementation-Title': 'nest NikEm STack',
+		'Implementation-Version': version
+	}
+}
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+}
+
+dependencies {
+	compile ('de.nikem.nest:nest:1.0-SNAPSHOT') {
+		exclude group: 'javax.servlet', module: 'servlet-api'
+	}
+	//These dependencies must be omitted for deployment in servlet container
+	providedRuntime 'javax.servlet:javax.servlet-api:+'
+	providedRuntime 'javax.servlet.jsp:javax.servlet.jsp-api:+'
+	providedRuntime 'javax.websocket:javax.websocket-api:+'
+	testCompile 'junit:junit:4.+'
+}
+
+test {
+	systemProperties 'property': 'value'
+}
+
+[compileJava,compileTestJava]*.options*.encoding = 'UTF-8'
+
+eclipseJdt << {
+	File f = file('.settings/org.eclipse.core.resources.prefs')
+	f.write('eclipse.preferences.version=1\n')
+	f.append('encoding/<project>=UTF-8')
+}
