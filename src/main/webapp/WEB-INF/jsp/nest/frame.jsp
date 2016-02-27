@@ -30,7 +30,7 @@
 		<%-- wenn kein Skript angegeben ist, auf jeden Fall nest laden --%>
 		<c:set var="_mainScript" value="nest" />
 	</c:if>
-	<script data-main="${_mainScript}" src="${pageContext.request.contextPath}/scripts/nest/require.js"></script>
+	<script data-main="${_mainScript}" src="${pageContext.request.contextPath}/scripts/nest/nest.js"></script>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/scripts/nest/site.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/scripts/nest/jquery-ui-1.11.4.custom/jquery-ui.css"/>

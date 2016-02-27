@@ -5,6 +5,7 @@
 /.classpath
 /.project
 /target
+/src/main/webapp/scripts/nest/nest.js
 
 ## Applikation
 **/log

@@ -1,3 +1,6 @@
+plugins {
+	id "com.eriwen.gradle.js" version "1.12.1"
+}
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'war'
@@ -13,6 +16,33 @@ eclipse {
 		containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
 	}
 }
+
+//Declare your sources
+def jsSrcDir = 'src/main/webapp/scripts/nest'
+
+javascript.source {
+    dev {
+        js {
+            srcDir jsSrcDir
+            include "*.js"
+            exclude "nest.js"
+        }
+    }
+}
+
+combineJs {
+    //encoding = "UTF-8"
+    source = [
+              "${jsSrcDir}/license.js",
+              "${jsSrcDir}/require.js",
+              "${jsSrcDir}/jquery-2.2.0.js",
+              "${jsSrcDir}/nestbase.js",
+              "${jsSrcDir}/nestui.js",
+    ]
+    dest = file(jsSrcDir + '/nest.js')
+}
+
+eclipseWtpComponent.dependsOn combineJs
 
 jar {
 	manifest {
