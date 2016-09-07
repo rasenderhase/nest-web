@@ -1,5 +1,5 @@
 plugins {
-	id "com.eriwen.gradle.js" version "1.12.1"
+	id "com.eriwen.gradle.js" version "2.14.1"
 }
 apply plugin: 'java'
 apply plugin: 'maven'
