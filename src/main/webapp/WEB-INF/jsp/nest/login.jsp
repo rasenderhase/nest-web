@@ -2,28 +2,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 	<form method="POST" action="${pageContext.request.contextPath}/j_security_check">
-		<table>
-			<tr>
-				<td colspan="2">Login</td>
-			</tr>
-			<tr>
-				<td>Name:</td>
-				<td><input type="text" name="j_username" /></td>
-			</tr>
-			<tr>
-				<td>Passwort:</td>
-				<td><input type="password" name="j_password" /></td>
-			</tr>
-			<tr style="height: 2em;">
-				<td colspan="2" style="color: red;">
-					<c:if test="${loginFailed}">
-					Name oder Passwort unbekannt
-					</c:if>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="Go" /></td>
-			</tr>
-		</table>
+	
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		      <input type="text" name="j_username" id="j_username" class="mdl-textfield__input"/>
+			  <label class="mdl-textfield__label" for="j_username">Name...</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			  <input type="password" name="j_password" id="j_password" class="mdl-textfield__input"/>
+			  <label class="mdl-textfield__label" for="j_password">Passwort</label>
+			</div>
+			
+		  <div class="mdl-card__actions mdl-card--border">
+		    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">LOGIN</button>
+		  </div>
+		  
 	</form>
+	<c:if test="${loginFailed}">
+		<input id="loginFailed" type="hidden" value="Name oder Passwort unbekannt">
+	</c:if>
 	<c:set scope="session" var="loginFailed" value="${false}"></c:set>

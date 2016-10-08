@@ -19,24 +19,23 @@
 	        // js/lib/jquery-1.9.0.js, relative to
 	        // the HTML page.
 	        jquery : 'jquery-2.2.0',
-	        "jquery-ui" : 'jquery-ui-1.11.4.custom/jquery-ui',
-	        "datatables.net" : 'DataTables/DataTables-1.10.11/js/jquery.dataTables',
-	        "datatables.net.jquery-ui" : 'DataTables/DataTables-1.10.11/js/dataTables.jqueryui',
 	        app : '../app'
 	    }
 	};
 	</script>
+	<%-- _mainScript wird bei der Erstellung der Viewable im nest-Projekt gesetzt. --%>
 	<c:if test="${empty _mainScript}">
 		<%-- wenn kein Skript angegeben ist, auf jeden Fall nest laden --%>
 		<c:set var="_mainScript" value="nest" />
 	</c:if>
 	<script data-main="${_mainScript}" src="${pageContext.request.contextPath}/scripts/nest/nest.js"></script>
-
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/scripts/nest/site.css"/>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/scripts/nest/jquery-ui-1.11.4.custom/jquery-ui.css"/>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/scripts/nest/DataTables/DataTables-1.10.11/css/dataTables.jqueryui.css"/>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+	<!-- TODO require -->
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </head>
-<body style="margin: 0px; display: none">
+<body style="display: none">
 	<jsp:include page="layout.jsp"></jsp:include>
 </body>
 	<c:if test="${_mainScript eq 'nest'}">
