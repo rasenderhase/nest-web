@@ -16,7 +16,11 @@
       </nav>
     </div>
   </header>
-  <jsp:include page="navigation.jsp" />
+
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">${pageContext.servletContext.servletContextName}</span>
+    <jsp:include page="navigation.jsp" />
+  </div>
   
   <main class="mdl-layout__content">
   	<jsp:include page="${_bodyJsp}" />
