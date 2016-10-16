@@ -10,6 +10,9 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
+      	<c:if test="${empty pageContext.request.userPrincipal}">
+        	<a class="mdl-navigation__link" href="${pageContext.request.contextPath}/rest/nest/login">Login</a>
+        </c:if>
       	<c:if test="${not empty pageContext.request.userPrincipal}">
         	<a class="mdl-navigation__link" href="${pageContext.request.contextPath}/rest/logout">Logout ${pageContext.request.userPrincipal.name}</a>
         </c:if>
@@ -18,7 +21,7 @@
   </header>
 
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">${pageContext.servletContext.servletContextName}</span>
+    <a class="mdl-layout-title" href="${pageContext.request.contextPath}/rest/nest/index">${pageContext.servletContext.servletContextName}</a>
     <jsp:include page="navigation.jsp" />
   </div>
   

@@ -53,11 +53,21 @@
 			<role-name>admin</role-name>
 		</auth-constraint>
 	</security-constraint>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Login</web-resource-name>
+			<url-pattern>/rest/nest/login</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>loggedin</role-name>
+		</auth-constraint>
+	</security-constraint>
 
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
-			<form-login-page>/rest/login</form-login-page>
+			<form-login-page>/rest/nest/dologin</form-login-page>
 			<form-error-page>/login_failed.jsp</form-error-page>
 		</form-login-config>
 	</login-config>
