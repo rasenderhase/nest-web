@@ -15,6 +15,6 @@ Sorry, es ist ein Fehler aufgetreten.
 	<c:set var="uri" value="${pageContext.request.getHeader('referer')}" />
 </c:if>
 
-<a href="${uri}">Egal.</a>
+<a href="${pageContext.request.contextPath}">Zurück zu ${pageContext.servletContext.servletContextName}</a>
 </body>
 </html>
