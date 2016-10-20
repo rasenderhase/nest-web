@@ -4,6 +4,12 @@
 	version="3.1">
 	<display-name>nest NikEm STack web application</display-name>
 
+	<context-param>
+    	<param-name>de.nikem.nest.filter.NestFilter.basenames</param-name>
+    	<!-- comma seperated list of resource bundle base names -->
+    	<param-value>de.nikem.nest.demo.texts</param-value>
+  	</context-param>
+
 	<filter>
 		<filter-name>nest Filter</filter-name>
 		<filter-class>de.nikem.nest.filter.NestFilter</filter-class>
@@ -77,6 +83,11 @@
 	</login-config>
 	
     <error-page>
+      <error-code>403</error-code>
+      <location>/error_403.jsp</location>
+    </error-page>
+<!-- 
+    <error-page>
       <error-code>500</error-code>
       <location>/error.jsp</location>
     </error-page>
@@ -85,11 +96,8 @@
       <location>/error.jsp</location>
     </error-page>
     <error-page>
-      <error-code>403</error-code>
-      <location>/error_403.jsp</location>
-    </error-page>
-    <error-page>
       <error-code>408</error-code>
       <location>/error.jsp</location>
     </error-page>
+ -->
 </web-app>
