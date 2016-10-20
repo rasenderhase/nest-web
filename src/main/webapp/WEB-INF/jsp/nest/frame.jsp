@@ -33,10 +33,10 @@
 	<script data-main="${_mainScript}" src="${pageContext.request.contextPath}/scripts/nest/nest.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/scripts/material/material.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/scripts/nest/site.css">
 	<!-- TODO require -->
-	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+	<script defer src="${pageContext.request.contextPath}/scripts/material/material.min.js"></script>
 </head>
 <body style="display: none">
 	<jsp:include page="layout.jsp"></jsp:include>
