@@ -9,6 +9,10 @@
     	<!-- comma seperated list of resource bundle base names -->
     	<param-value>de.nikem.nest.demo.texts</param-value>
   	</context-param>
+  	
+  	<listener>
+  		<listener-class>de.nikem.nest.filter.BeanFactory</listener-class>
+  	</listener>
 
 	<filter>
 		<filter-name>nest Filter</filter-name>
