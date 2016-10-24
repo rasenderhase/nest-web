@@ -1,3 +1,6 @@
+//for Ant filter
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
 	id "com.eriwen.gradle.js" version "2.14.1"
 }
@@ -44,11 +47,8 @@ combineJs {
 
 eclipseWtpComponent.dependsOn combineJs
 
-jar {
-	manifest {
-		attributes 'Implementation-Title': 'nest NikEm STack',
-		'Implementation-Version': version
-	}
+war {
+	filter(ReplaceTokens, tokens:['version': version])
 }
 
 repositories {

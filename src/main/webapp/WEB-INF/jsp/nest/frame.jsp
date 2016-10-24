@@ -9,7 +9,7 @@
 	<script>
 	// you can register settings like this before require.js is loaded
 	var require = {
-	    baseUrl : '${pageContext.request.contextPath}/scripts/nest',
+	    baseUrl : '${staticContextPath}/scripts/nest',
 	    paths : {
 	        // the left side is the module ID,
 	        // the right side is the path to
@@ -30,14 +30,14 @@
 		<%-- wenn kein Skript angegeben ist, auf jeden Fall nestui laden --%>
 		<c:set var="_mainScript" value="nestui" />
 	</c:if>
-	<script data-main="${_mainScript}" src="${pageContext.request.contextPath}/scripts/nest/nest.js"></script>
+	<script data-main="${_mainScript}" src="${staticContextPath}/scripts/nest/nest.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/scripts/material/material.min.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/scripts/material/sprites/svg-sprite/svg-sprite-action.css" >
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/scripts/nest/site.css">
+	<link rel="stylesheet" href="${staticContextPath}/scripts/material/material.min.css">
+	<link rel="stylesheet" href="${staticContextPath}/scripts/material/sprites/svg-sprite/svg-sprite-action.css" >
+	<link rel="stylesheet" href="${staticContextPath}/scripts/nest/site.css">
 	<!-- TODO require -->
-	<script defer src="${pageContext.request.contextPath}/scripts/material/material.min.js"></script>
+	<script defer src="${staticContextPath}/scripts/material/material.min.js"></script>
 </head>
 <body style="display: none">
 	<jsp:include page="layout.jsp"></jsp:include>

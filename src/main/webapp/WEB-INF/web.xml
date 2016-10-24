@@ -10,6 +10,11 @@
     	<param-value>de.nikem.nest.demo.texts</param-value>
   	</context-param>
   	
+  	<context-param>
+    	<param-name>de.nikem.nest.filter.NestFilter.version</param-name>
+    	<param-value>@version@</param-value>
+  	</context-param>
+  	
   	<listener>
   		<listener-class>de.nikem.nest.filter.BeanFactory</listener-class>
   	</listener>
