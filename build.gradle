@@ -21,7 +21,7 @@ eclipse {
 }
 
 //Declare your sources
-def jsSrcDir = 'src/main/webapp/scripts/nest'
+def jsSrcDir = 'src/main/webapp/static/scripts/nest'
 
 javascript.source {
     dev {
@@ -39,8 +39,9 @@ combineJs {
               "${jsSrcDir}/license.js",
               "${jsSrcDir}/require.js",
               "${jsSrcDir}/jquery-2.2.0.js",
+              "${jsSrcDir}/../material/material.js",
               "${jsSrcDir}/nestbase.js",
-              "${jsSrcDir}/nestui.js",
+              "${jsSrcDir}/nestui.js"
     ]
     dest = file(jsSrcDir + '/nest.js')
 }
