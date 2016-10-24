@@ -31,8 +31,11 @@
 		<c:set var="_mainScript" value="nestui" />
 	</c:if>
 	<script data-main="${_mainScript}" src="${staticContextPath}/scripts/nest/nest.js"></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<!--
+	included in application site.css 	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css"> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+-->
 	<link rel="stylesheet" href="${staticContextPath}/scripts/material/material.min.css">
 	<link rel="stylesheet" href="${staticContextPath}/scripts/material/sprites/svg-sprite/svg-sprite-action.css" >
 	<link rel="stylesheet" href="${staticContextPath}/scripts/nest/site.css">
