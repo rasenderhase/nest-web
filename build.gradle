@@ -1,10 +1,32 @@
 //for Ant filter
 import org.apache.tools.ant.filters.ReplaceTokens
 
-plugins {
-	id "com.bmuschko.nexus" version "2.3.1"
-	id "com.eriwen.gradle.js" version "2.14.1"
+// *** alte Schreibweise für Gradle-Plugins ***
+buildscript {
+	repositories {
+		maven {
+			url "https://TEAMCITY:8081/artifactory/repo"
+			credentials {
+				username teamcity_username
+				password teamcity_password
+			}
+		}
+		mavenCentral()
+	}
+	dependencies {
+		classpath "com.bmuschko:gradle-nexus-plugin:2.3.1"
+		classpath "com.eriwen:gradle-js-plugin:2.14.1"
+	}
 }
+apply plugin: "com.bmuschko.nexus"
+apply plugin: "com.eriwen.gradle.js"
+
+// *** neue Schreibweise für Gradle-Plugins ***
+//plugins {
+	//id "com.bmuschko:nexus" version "2.3.1"
+	//id "com.eriwen.gradle.js" version "2.14.1"
+//}
+
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'war'
@@ -54,8 +76,14 @@ war {
 }
 
 repositories {
+	maven {
+		url "https://TEAMCITY:8081/artifactory/repo"
+		credentials {
+			username teamcity_username
+			password teamcity_password
+		}
+	}
 	mavenCentral()
-	mavenLocal()
 }
 
 dependencies {
@@ -111,5 +139,5 @@ modifyPom {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "3.0"
+    gradleVersion = "3.1"
 }
