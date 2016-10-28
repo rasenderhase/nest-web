@@ -4,14 +4,19 @@ import org.apache.tools.ant.filters.ReplaceTokens
 // *** alte Schreibweise für Gradle-Plugins ***
 buildscript {
 	repositories {
-		maven {
-			url "https://TEAMCITY:8081/artifactory/repo"
-			credentials {
-				username teamcity_username
-				password teamcity_password
+		if (project.hasProperty("maven_host")) {
+			maven {
+				url maven_host
+				credentials {
+					username maven_username
+					password maven_password
+				}
 			}
+		} else {
+			maven {
+      			url "https://plugins.gradle.org/m2/"
+    		}
 		}
-		mavenCentral()
 	}
 	dependencies {
 		classpath "com.bmuschko:gradle-nexus-plugin:2.3.1"
@@ -76,14 +81,17 @@ war {
 }
 
 repositories {
-	maven {
-		url "https://TEAMCITY:8081/artifactory/repo"
-		credentials {
-			username teamcity_username
-			password teamcity_password
+	if (project.hasProperty("maven_host")) {
+		maven {
+			url maven_host
+			credentials {
+				username maven_username
+				password maven_password
+			}
 		}
+	} else {
+		mavenCentral()
 	}
-	mavenCentral()
 }
 
 dependencies {
