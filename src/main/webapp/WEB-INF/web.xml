@@ -61,6 +61,7 @@
 	<!-- everything is blocked -->
 	<security-constraint>
 		<web-resource-collection>
+			<web-resource-name>dynamic web resources</web-resource-name>
 			<url-pattern>/rest/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
@@ -71,6 +72,7 @@
 	<!-- white list (no authentication required) -->
 	<security-constraint>
 		<web-resource-collection>
+			<web-resource-name>white list</web-resource-name>
 			<url-pattern>/rest/nest/index</url-pattern>
 			<url-pattern>/rest/logout</url-pattern>
 		</web-resource-collection>
