@@ -7,7 +7,11 @@
 	<c:set var="uri" value="${pageContext.request.getHeader('referer')}" />
 </c:if>
 
-<c:set scope="session" var="snackMessage">
 	<fmt:message key="nest-web.error_403"/>
-</c:set>
-<c:redirect url="${uri}" />
+	
+	<ul>
+		<li>${pageContext.errorData.requestURI}</li>
+		<li>${pageContext.errorData.servletName}</li>
+		<li>${pageContext.errorData.statusCode}</li>
+	</ul>
+	
