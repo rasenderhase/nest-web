@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set scope="session" var="snackMessage">
+<c:set scope="request" var="snackMessage">
 <fmt:message key="nest-web.login_failed" />
 </c:set>
 <c:set scope="request" var="_bodyJsp" value="/WEB-INF/jsp/nest/dologin.jsp" />

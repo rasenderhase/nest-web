@@ -34,10 +34,9 @@
   	<jsp:include page="${_bodyJsp}" />
   </main>
   
-  <input id="snackMessage" type="hidden" value="${snackMessage}">
+  <input id="snackMessage" type="hidden" value="${snackMessage}${it.snackMessage}">
   <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action" type="button"></button>
   </div>
-  <c:remove var="snackMessage"/>
 </div>
