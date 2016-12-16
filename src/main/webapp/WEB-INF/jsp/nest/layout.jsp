@@ -26,7 +26,7 @@
   </header>
 
   <div class="mdl-layout__drawer">
-    <a class="mdl-layout-title" href="${pageContext.request.contextPath}/rest/nest/index">${pageContext.servletContext.servletContextName}</a>
+    <a class="mdl-layout-title" href="${pageContext.request.contextPath}/">${pageContext.servletContext.servletContextName}</a>
     <jsp:include page="navigation.jsp" />
   </div>
   
