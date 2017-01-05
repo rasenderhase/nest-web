@@ -11,7 +11,7 @@ define("nestui", ["nest", "jquery"], function(nest, $) {
 			notification = $('.mdl-js-snackbar')[0];
 			data = {
 			  message: message,
-			  timeout: 10000
+			  timeout: 4000
 			};
 			setTimeout(function () {
 				notification.MaterialSnackbar.showSnackbar(data);
