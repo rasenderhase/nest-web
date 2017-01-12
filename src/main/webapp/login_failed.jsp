@@ -9,7 +9,7 @@
 <c:set scope="request" var="_bodyJsp" value="/WEB-INF/jsp/nest/dologin.jsp" />
 <c:set scope="request" var="_mainScript" value="login" />
 <% 
-	Map<String, Object> model = new HashMap<>();
+	Map<String, Object> model = new HashMap<String, Object>();
 	model.put("title", "Login");
 	request.setAttribute("it", model);
 %>
