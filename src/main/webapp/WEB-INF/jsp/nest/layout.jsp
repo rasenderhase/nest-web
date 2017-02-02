@@ -34,7 +34,7 @@
   	<jsp:include page="${_bodyJsp}" />
   </main>
   
-  <input id="snackMessage" type="hidden" value="${param.snackMessage}${snackMessage}${it.snackMessage}${it.errors.snackMessage}">
+  <input id="snackMessage" type="hidden" value="${param.snackMessage}${snackMessage}${it.snackMessage}${it.errors.snackMessage}${app_session.infoMessage}${app_session.errorMessage}">
   <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action" type="button"></button>
