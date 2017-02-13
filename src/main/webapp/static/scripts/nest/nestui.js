@@ -7,7 +7,7 @@ define("nestui", ["nest", "jquery"], function(nest, $) {
 		var notification, data,
 		message = $("#snackMessage").val();
 		
-		if (message.length){
+		if (message && message.length){
 			notification = $('.mdl-js-snackbar')[0];
 			data = {
 			  message: message,
