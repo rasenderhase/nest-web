@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>${pageContext.servletContext.servletContextName}<c:if test="${not empty it.title}"> - ${it.title}</c:if></title>
+    <link rel="icon" href="${staticContextPath}/images/favicon.png" type="image/png">
 	<script>
 	// you can register settings like this before require.js is loaded
 	var require = {
