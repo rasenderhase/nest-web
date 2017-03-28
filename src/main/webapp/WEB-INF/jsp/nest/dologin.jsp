@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	
 <div class="mdl-card mdl-shadow--2dp">
-	<form method="POST" action="${pageContext.request.contextPath}/j_security_check">
+	<form method="POST" action="${pageContext.request.contextPath}/j_security_check" id="j_security_check_form">
 		<div class="mdl-card__supporting-text">
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		      <input type="text" name="j_username" id="j_username" class="mdl-textfield__input" spellcheck="false" autocorrect="off" autocapitalize="none"/>
