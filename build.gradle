@@ -99,7 +99,7 @@ repositories {
 }
 
 dependencies {
-	compile ('de.nikem.nest:nest:+') {
+	compile ('de.nikem.nest:nest:1.6') {
 		exclude group: 'javax.servlet', module: 'servlet-api'
 	}
 	//These dependencies must be omitted for deployment in servlet container
