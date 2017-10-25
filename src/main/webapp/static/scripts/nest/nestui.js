@@ -8,12 +8,12 @@ define("nestui", ["nest", "jquery"], function(nest, $) {
 		message = $("#snackMessage").val();
 		
 		if (message && message.length){
-			notification = $('.mdl-js-snackbar')[0];
 			data = {
 			  message: message,
 			  timeout: 4000
 			};
 			setTimeout(function () {
+				notification = $('.mdl-js-snackbar')[0];
 				notification.MaterialSnackbar.showSnackbar(data);
 			}, 0);
 		}		
