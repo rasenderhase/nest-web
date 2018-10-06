@@ -34,8 +34,6 @@ apply plugin: "com.eriwen.gradle.js"
 
 apply plugin: 'java'
 apply plugin: 'maven'
-apply plugin: 'war'
-apply plugin: 'eclipse-wtp'
 	
 //Für Publish ins lokale Artifactory
 apply plugin: "maven-publish"
@@ -44,15 +42,8 @@ group = theGroup
 version = theVersion
 sourceCompatibility = theSourceCompatibility
 
-eclipse {
-	classpath {
-		containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-		containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-	}
-}
-
 //Declare your sources
-def jsSrcDir = 'src/main/webapp/static/scripts/nest'
+def jsSrcDir = 'src/main/resources/META-INF/resources/static/scripts/nest'
 
 javascript.source {
     dev {
@@ -77,12 +68,6 @@ combineJs {
     dest = file(jsSrcDir + '/nest.js')
 }
 
-eclipseWtpComponent.dependsOn combineJs
-
-war {
-	filter(ReplaceTokens, tokens:['version': version])
-}
-
 repositories {
 	if (project.hasProperty("maven_host")) {
 		maven {
@@ -103,9 +88,9 @@ dependencies {
 		exclude group: 'javax.servlet', module: 'servlet-api'
 	}
 	//These dependencies must be omitted for deployment in servlet container
-	providedRuntime 'javax.servlet:javax.servlet-api:4.0.0-b01'
-	providedRuntime 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.2-b02'
-	providedRuntime 'javax.websocket:javax.websocket-api:1.1'
+	compileOnly 'javax.servlet:javax.servlet-api:4.0.0-b01'
+	compileOnly 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.2-b02'
+	compileOnly 'javax.websocket:javax.websocket-api:1.1'
 	testCompile 'junit:junit:4.12'
 }
 
@@ -115,10 +100,11 @@ test {
 
 [compileJava,compileTestJava]*.options*.encoding = 'UTF-8'
 
-eclipseJdt << {
-	File f = file('.settings/org.eclipse.core.resources.prefs')
-	f.write('eclipse.preferences.version=1\n')
-	f.append('encoding/<project>=UTF-8')
+processResources {
+	with copySpec {
+		from 'src/main/resources/'
+		filter(ReplaceTokens, tokens: ['version': version])
+	}
 }
 
 modifyPom {
@@ -171,11 +157,11 @@ publishing {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            from components.web
+			from components.java
         }
     }
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "3.1"
+    gradleVersion = "4.10"
 }
